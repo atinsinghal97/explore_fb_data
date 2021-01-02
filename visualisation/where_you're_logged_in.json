@@ -1,0 +1,323 @@
+{
+    "active_sessions": [
+        {
+            "created_timestamp": 1572983977,
+            "updated_timestamp": 1585493784,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36",
+            "datr_cookie": "fdTB********************",
+            "device": "Mac",
+            "location": "London, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1583310354,
+            "updated_timestamp": 1585488034,
+            "ip_address": "90.242.3.237",
+            "user_agent": "LightSpeed [FBAN/MessengerLiteForiOS;FBAV/257.0.1.38.116;FBBV/204807655;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3.1;FBSS/2;FBCR/;FBID/phone;FBLC/en_GB;FBOP/0]",
+            "datr_cookie": "EmZf********************",
+            "device": "iPhone 11",
+            "location": "London, United Kingdom",
+            "app": "Messenger for iOS",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1584810877,
+            "updated_timestamp": 1585488034,
+            "ip_address": "90.242.3.237",
+            "user_agent": "LightSpeed [FBAN/MessengerLiteForiOS;FBAV/257.0.1.38.116;FBBV/204807655;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3;FBSS/2;FBCR/;FBID/phone;FBLC/en_GB;FBOP/0]",
+            "datr_cookie": "fUt2********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger for iOS",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1571844982,
+            "updated_timestamp": 1585488033,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36",
+            "datr_cookie": "aXOw********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1562514118,
+            "updated_timestamp": 1585387584,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Mobile/15E148 Safari/604.1",
+            "datr_cookie": "J8Vc********************",
+            "device": "iPhone",
+            "location": "London, United Kingdom",
+            "app": "Mobile Safari",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1580676172,
+            "updated_timestamp": 1585386322,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBAV/262.0.0.47.113;FBBV/204102196;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3.1;FBSS/2;FBID/phone;FBLC/en_GB;FBOP/5;FBRV/205881989;FBCR/vodafone UK]",
+            "datr_cookie": "UhN_********************",
+            "device": "iPhone 11",
+            "location": "London, United Kingdom",
+            "app": "Facebook app",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1543180511,
+            "updated_timestamp": 1584994001,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3;FBSS/2;FBID/phone;FBLC/en_GB;FBOP/5;FBCR/vodafone UK]",
+            "datr_cookie": "3xD7********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Facebook app",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1566747412,
+            "updated_timestamp": 1584832781,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
+            "datr_cookie": "Eati********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1583850158,
+            "updated_timestamp": 1584814284,
+            "ip_address": "90.242.3.237",
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
+            "datr_cookie": "gQNl********************",
+            "device": "Windows PC",
+            "location": "London, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1583330096,
+            "updated_timestamp": 1584463190,
+            "ip_address": "90.242.3.237",
+            "user_agent": "LightSpeed [FBAN/MessengerLiteForiOS;FBAV/255.0.0.30.124;FBBV/202164847;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/13.3;FBSS/2;FBCR/;FBID/phone;FBLC/en_GB;FBOP/0]",
+            "datr_cookie": "3xD7********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger for iOS",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1559403452,
+            "updated_timestamp": 1574809306,
+            "ip_address": "90.252.82.197",
+            "user_agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+            "datr_cookie": "H6-4********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1574715613,
+            "ip_address": "90.252.82.197",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36",
+            "datr_cookie": "10Dc********************",
+            "device": "Mac",
+            "location": "London, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1566901164,
+            "updated_timestamp": 1573425496,
+            "ip_address": "90.248.64.111",
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36",
+            "datr_cookie": "gQNl********************",
+            "device": "Windows PC",
+            "location": "Trowbridge, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "50.7236",
+                "longitude": "-3.5275"
+            }
+        },
+        {
+            "created_timestamp": 1538492143,
+            "updated_timestamp": 1573298249,
+            "ip_address": "90.248.64.111",
+            "user_agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+            "datr_cookie": "RqDG********************",
+            "device": "Windows PC",
+            "location": "Trowbridge, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "50.7236",
+                "longitude": "-3.5275"
+            }
+        },
+        {
+            "created_timestamp": 1569930146,
+            "updated_timestamp": 1572349719,
+            "ip_address": "170.194.32.12",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15",
+            "datr_cookie": "TFqB********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1571070975,
+            "updated_timestamp": 1571074589,
+            "ip_address": "170.194.32.58",
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299",
+            "datr_cookie": "86Ok********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1568758365,
+            "updated_timestamp": 1569843531,
+            "ip_address": "5.148.125.98",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Safari/605.1.15",
+            "datr_cookie": "TFqB********************",
+            "device": "Device type unknown",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1568849604,
+            "ip_address": "212.49.215.19",
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Safari/605.1.15",
+            "datr_cookie": "v76C********************",
+            "device": "Mac",
+            "location": "Cirencester, United Kingdom",
+            "app": "Safari",
+            "coordinate": {
+                "latitude": "51.5580",
+                "longitude": "-1.7812"
+            }
+        },
+        {
+            "created_timestamp": 1567708432,
+            "ip_address": "90.240.215.32",
+            "user_agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36",
+            "datr_cookie": "CFVx********************",
+            "device": "Windows PC",
+            "location": "London, United Kingdom",
+            "app": "Chrome",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1562367902,
+            "updated_timestamp": 1562930477,
+            "ip_address": "90.240.215.32",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/MessengerForiOS;FBAV/222.0.0.39.122;FBBV/161505593;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/12.3.1;FBSS/2;FBCR/vodafone UK;FBID/phone;FBLC/en_GB;FBOP/5]",
+            "datr_cookie": "LW0o********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1560120649,
+            "updated_timestamp": 1562340004,
+            "ip_address": "85.255.237.95",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/MessengerForiOS;FBAV/218.1.0.52.109;FBBV/157726496;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/12.3.1;FBSS/2;FBCR/vodafone UK;FBID/phone;FBLC/en_GB;FBOP/5]",
+            "datr_cookie": "pGof********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1558719200,
+            "updated_timestamp": 1560102120,
+            "ip_address": "85.255.233.90",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/MessengerForiOS;FBAV/218.1.0.52.109;FBBV/157726496;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/12.3.1;FBSS/2;FBCR/vodafone UK;FBID/phone;FBLC/en_GB;FBOP/5]",
+            "datr_cookie": "6ET9********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        },
+        {
+            "created_timestamp": 1543189971,
+            "updated_timestamp": 1558699980,
+            "ip_address": "85.255.233.191",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/MessengerForiOS;FBAV/216.0.0.45.112;FBBV/155561181;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/12.2;FBSS/2;FBCR/vodafone UK;FBID/phone;FBLC/en_GB;FBOP/5]",
+            "datr_cookie": "zN_n********************",
+            "device": "iPhone 6s",
+            "location": "London, United Kingdom",
+            "app": "Messenger",
+            "coordinate": {
+                "latitude": "51.5085",
+                "longitude": "-0.1257"
+            }
+        }
+    ]
+}

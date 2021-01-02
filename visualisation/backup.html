@@ -1,0 +1,440 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"> </script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script src="jquery.CalendarHeatmap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery.CalendarHeatmap.min.css">
+
+    <style type="text/css">
+        body{
+            fill: darkblue;
+            font-family: "Lato";
+            font-size: 18px;
+            font-weight: 300;
+            justify-content: center;
+            align-items: center;
+            min-height: 200vh;
+            margin-bottom: 200px;
+        }
+        #world {
+            background-color: white;
+            background-opacity: 0.5;
+            margin-left:auto;
+            margin-right:auto;
+            display:block;
+            /*  -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              border-radius: 5px;
+              -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+              -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+              box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);*/
+        }
+        .country:hover {
+            fill: purple;
+            opacity: 1;
+            stroke: black;
+            stroke-width: 1px;
+        }
+        .country{
+            fill: #fc3995;
+            position:fixed;
+            stroke : black;
+
+        }
+        .graticule {
+            fill: none;
+            stroke: black;
+            stroke-width: .5px;
+            stroke-opacity: 0.5;
+
+        }
+        .right-box {
+            background: darkslategrey ;
+            background-opacity: 0.5 ;
+            border-radius: 20px;
+            box-sizing: border-box;
+            display: none;
+            padding: 0px;
+            display: block;
+            color: white;
+            position: absolute;
+            right: 20px;
+            margin-top: 140px;
+            min-width: 250px;
+            margin-right: 100px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            text-shadow:
+                    -1px 1px 0 #000,
+                    -2px 2px 0 #000,
+                    -3px 3px 0 #000,
+                    -4px 4px 0 #000,
+                    -5px 5px 0 #000,
+                    -6px 6px 0 #000,
+                    -7px 7px 0 #000;
+        }
+
+        .heatmapTitle-box {
+            background: darkslategrey ;
+            width: 200px;
+            height: 40px;
+            left :100px;
+            margin-top : 10px;
+            background-opacity: 0.8 ;
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+            display:  block;
+            color: white    ;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            min-width: 1px;
+            margin-right: 10px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            text-shadow:
+                    -1px 1px 0 #000,
+                    -2px 2px 0 #000,
+                    -3px 3px 0 #000,
+                    -4px 4px 0 #000,
+                    -5px 5px 0 #000,
+                    -6px 6px 0 #000,
+                    -7px 7px 0 #000
+        }
+        .heatmap-box {
+            background: transparent ;
+            width: 200px;
+            height: 800px;
+            left :100px;
+            margin-top : 50px;
+            background-opacity: 0.8 ;
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+            display: block;
+            color: black    ;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            min-width: 1px;
+            margin-right: 10px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .center-box {
+            background: transparent ;
+            background-opacity: 0.8 ;
+            border-radius: 20px;
+            box-sizing: border-box;
+            display: block;
+            padding: 0px;
+            display: block;
+            color: white;
+            position: fixed;
+            right: 10px;
+            margin-top: 10px;
+            min-width: 250px;
+            margin-right: 100px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            /* -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+             -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+             text-shadow:
+                     -1px 1px 0 #000,
+                     -2px 2px 0 #000,
+                     -3px 3px 0 #000,
+                     -4px 4px 0 #000,
+                     -5px 5px 0 #000,
+                     -6px 6px 0 #000,
+                     -7px 7px 0 #000;
+                     */
+        }
+        .places-box {
+            background: transparent ;
+            background-opacity: 0.8 ;
+            border-radius: 20px;
+            box-sizing: border-box;
+            display: block;
+            padding: 10px;
+            display: block;
+            color: black    ;
+            position: absolute;
+            right: 40px;
+            margin-top: 160px;
+            min-width: 100px;
+            margin-right: 100px;
+            -webkit-text-stroke-width: 1px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        #legend{
+            right: 500px;
+            top: 300px;
+            min-width: 250px;
+            margin-right: 200px;
+        }
+
+        .box-title {
+            margin-top: -20px;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-bottom: -20px;
+        }
+
+        .axis {
+            shape-rendering: crispEdges;
+            font: 10px sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<div id="heatmapbox" class="box heatmap-box"><div class="box-title"><div id="heatmap-5"></div></div><span style="font-style:italic;"></span></div>
+<div id="centerbox" class="box center-box"><div class="box-title"><img src="logo-header.png" style="float:right;" /></div><span style="font-style:italic;"></span></div>
+<div id="placesbox" class="box places-box"><div class="box-places"><h4><ul id="myUL" , style="width: 300px; height: 200px; overflow-y: auto">
+</ul></h4></div><span style="font-style:italic;"></span></div>
+<div svg = legend class=" legend"></div>
+<div id="rightbox" class="box right-box"><div class="box-title"><h3>Facebook Data: "Your Places" <h3></div><span style="font-style:italic;"></span></div>
+
+</body>
+
+<script>
+
+    var width =  1000,
+        height = 1000;
+
+
+    var svg = d3.select("body").append("svg")
+        .attr("id", "world")
+        .attr("width", width)
+        .attr("height", height);
+
+    //var scl = Math.min(w, h)/2.5;
+    var projection = d3.geo.orthographic()
+        .scale(width/2.8,height/1.7)
+        .translate([width / 2.1, height / 3])
+        .center([0,10])
+        .clipAngle(90)
+        .precision(.1)
+        .rotate([0,1,0]);
+
+    var path = d3.geo.path()
+        .projection(projection);
+
+
+    var graticule = d3.geo.graticule();
+
+    var g = svg.append('g');
+
+    //define container for svg.
+
+    buildHeatMap();
+    buildWorld();
+    addPlaces();
+    buildList();
+
+
+    addFunctionalities();
+
+    //addOtherTimestamps();
+
+    function buildList() {
+        d3.json("your_places.json", function (data) {
+
+            var array = [];
+            for (var i = 0; i < data.your_places.length; i++) {
+                //get rid of any repeats
+                if (array.includes(data.your_places[i].address) == true) {
+                } else {
+                    array.push(data.your_places[i].address);
+                }
+            }
+            //create list with array elements
+            array.forEach(function (item) {
+                $("#myUL").append("<li>" + item + "</li>");
+            });
+
+
+        });
+        g.append(".myUl");
+
+    }
+
+
+
+    //Create Globe
+    function buildWorld() {
+        // Append all meridians and parallels/create globe
+        d3.json("world110m.json", function (collection) {
+            g.selectAll("path")
+                .data(topojson.feature(collection, collection.objects.countries).features)
+                .enter().append("path")
+                .attr("d", path)
+                .attr("class", "country")
+                .attr("fill", "#9e1cec")
+                .attr("opacity", 0.7)
+            g.append("path")
+                .datum(graticule)
+                .attr("class", "graticule")
+                .attr("d", path);
+        });
+    }
+    //Add Markers
+    function addPlaces() {
+        // add markers to globe
+        d3.json("your_places.json", function (data) {
+
+            g.selectAll("circle")
+                .data(data.your_places)
+                .enter()
+                .append("a")
+                .attr("xlink:href", function (d) {
+                    return d.url
+                })
+                .append("circle")
+                .attr("cx", function (d) {
+                    return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                })
+                .attr("cy", function (d) {
+                    return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                })
+                .attr("r", 2)
+                .attr("opacity", 0.5)
+                .attr("class", "places")
+                .attr("fill", "red");
+        });
+    }
+    // Add Functionalities : drag && Zoom
+    function addFunctionalities() {
+        var λ = d3.scale.linear()
+            .domain([0, width])
+            .range([-180, 180]);
+
+        var φ = d3.scale.linear()
+            .domain([0, height])
+            .range([90, -90]);
+
+        var drag = d3.behavior.drag().origin(function () {
+            var r = projection.rotate();
+            return {
+                x: λ.invert(r[0]),
+                y: φ.invert(r[1])
+            };
+
+        }).on("drag", function () {
+            projection.rotate([λ(d3.event.x), φ(d3.event.y)]);
+            g.transition()
+            g.selectAll(".graticule")
+                .datum(graticule)
+                .attr("d", path);
+            g.selectAll(".country").attr("d", path);
+            g.selectAll("circle")
+                .attr("cx", function (d) {
+                    return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                })
+                .attr("cy", function (d) {
+                    return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                })
+                .attr("r", 5 / d3.event.scale);
+        });
+        g.call(drag);
+
+        var zoom = d3.zoom()
+            .scaleExtent([1, 400]) //bound zoom
+            .on("zoom", function () {
+                projection.scale(d3.event.transform.translate(projection).k * d3.event.scale).scaleExtent([1, 400])
+                    .on("zoom", function () {
+                        g.attr("transform", "translate(" + d3.event.translate.join(",") + ") scale(" + d3.event.scale + ")");
+                        g.selectAll("path")
+                            .attr("d", path.projection(projection));
+
+                        g.selectAll("circle")
+                            .attr("transform", "translate(" + d3.event.translate.join(",") + ") scale(" + d3.event.scale + ")")
+                            .transition()
+                            .attr("cx", function (d) {
+                                return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                            })
+                            .attr("cy", function (d) {
+                                return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                            })
+                            .attr("r", 5 / zoom.scale);
+                    });
+            })
+        g.call(zoom);
+    }
+    function buildHeatMap() {
+
+        $("#heatmap-5").CalendarHeatmap( [], {
+            title: "Facebook: \"Activity\"",
+            legend: {
+                show: true,
+                align: "right",
+                minLabel: "Less Active",
+                maxLabel: "More Active"
+            }});
+        g.select("body").append(".heatmap-5");
+
+    }
+    /*
+        function addOtherTimestamps(){
+
+            d3.json("where_you've_logged_in.json", function (data) {
+
+                g.data(data.active_sessions)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) {
+                        return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                    })
+                    .attr("cy", function (d) {
+                        return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                    })
+                    .attr("r", 2)
+                    .attr("opacity", 0.5)
+                    .attr("class", ".accountAct")
+                    .attr("fill", "black");
+            });
+        }
+        */
+
+</script>
+</html>
+

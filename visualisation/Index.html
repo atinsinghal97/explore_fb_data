@@ -1,0 +1,616 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- import d3 and topojson -->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"> </script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+    <!--import jquery,moment.js,boostrap -->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!-- import calendar heat map + css -->
+   <script src="jquery.CalendarHeatmap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="jquery.CalendarHeatmap.min.css">
+
+    <!-- css for divs -->
+   <style type="text/css">
+       body{
+           background-color: #a0ffff;
+           font-family: "Lato";
+           font-size: 18px;
+           font-weight: 300;
+           justify-content: center;
+           align-items: center;
+           min-height: 200vh;
+           margin-bottom: 200px;
+       }
+       .places{
+           stroke:black;
+       }
+       .sphere {
+           fill: #3394f2;
+       }
+       #world {
+           background-color: transparent;
+           background-opacity: 0.2;
+           margin-left: auto;
+           margin-right: auto;
+           display: block;
+       }
+       .country:hover {
+           fill: purple;
+           opacity: 1;
+           stroke: black;
+           stroke-width: 1px;
+       }
+       .country{
+           fill: #fc3995;
+           opacity: 0.7;
+           position:fixed;
+           stroke : black;
+
+       }
+       .graticule {
+
+           fill: transparent;
+           stroke: white;
+           stroke-width: 0.5px;
+           stroke-opacity: 0.5;
+       }
+       .right-box {
+           background: darkslategrey ;
+           background-opacity: 0.5 ;
+           border-radius: 20px;
+           box-sizing: border-box;
+           display: none;
+           padding: 0px;
+           display: block;
+           color: white;
+           position: absolute;
+           right: 20px;
+           margin-top: 140px;
+           min-width: 100px;
+           margin-right: 10px;
+           -webkit-text-stroke-width: 1px;
+           -webkit-text-stroke-color: white;
+           -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+           border-radius: 5px;
+           -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           text-shadow:
+                   -1px 1px 0 #000,
+                   -2px 2px 0 #000,
+                   -3px 3px 0 #000,
+                   -4px 4px 0 #000,
+                   -5px 5px 0 #000,
+                   -6px 6px 0 #000,
+                   -7px 7px 0 #000;
+           }
+       .heatmap-box {
+           background:	#f28a8c; background-opacity: 0.5 ;
+           width: 200px;
+           height: 830px;
+           left :40px;
+           margin-top : 0px;
+           border-radius: 20px;
+           box-sizing: border-box;
+           padding: 10px;
+           display: block;
+           color: black    ;
+           position: absolute;
+           right: 20px;
+           top: 5px;
+           min-width: 1px;
+           margin-right: 10px;
+           -webkit-text-stroke-width: 1px;
+           -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+           border-radius: 5px;
+           -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+       }
+       .center-box {
+             background: transparent ;
+           background-opacity: 0.8 ;
+             border-radius: 20px;
+             box-sizing: border-box;
+             display: block;
+             padding: 0px;
+             display: block;
+             color: white;
+             position: fixed;
+             right: 10px;
+           margin-top: 10px;
+             min-width: 250px;
+             margin-right: 10px;
+           -webkit-text-stroke-width: 1px;
+           -webkit-text-stroke-color: white;
+           -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+           border-radius: 5px;
+          /* -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           text-shadow:
+                   -1px 1px 0 #000,
+                   -2px 2px 0 #000,
+                   -3px 3px 0 #000,
+                   -4px 4px 0 #000,
+                   -5px 5px 0 #000,
+                   -6px 6px 0 #000,
+                   -7px 7px 0 #000;
+                   */
+         }
+       .places-box {
+           background: white ;
+           background-opacity: 0.8 ;
+           border-radius: 20px;
+           box-sizing: border-box;
+           display: block;
+           padding: 10px;
+           display: block;
+           color: white    ;
+           position: absolute;
+           right: 20px;
+           margin-top: 160px;
+           min-width: 100px;
+           margin-right: 10px;
+           -webkit-text-stroke-width: 1px;
+           -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+           border-radius: 5px;
+           -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+       }
+       #legend{
+           right: 500px;
+           top: 300px;
+           min-width: 250px;
+           margin-right: 200px;
+       }
+       .box-title {
+           margin-top: -20px;
+           margin-right: 10px;
+           margin-left: 20px;
+           margin-bottom: -20px;
+       }
+       .axis {
+           shape-rendering: crispEdges;
+           font: 10px sans-serif;
+       }
+       .placesUl  {
+           right: 10px;
+
+       }
+       .heatMapSelect{
+           width: 300px;
+           height: 200px;
+           left: 10000px;
+
+       }
+       .logins-box{
+           background: transparent ;
+           width: 300px;
+           height: 200px;
+           right: 190px;
+           margin-top: 550px;
+           background-opacity: 0.8 ;
+           border-radius: 20px;
+           box-sizing: border-box;
+           padding: 10px;
+           display: block;
+           color: black    ;
+           position: absolute;
+           min-width: 1px;
+           margin-right: 10px;
+           -webkit-text-stroke-width: 1px;
+           -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+           border-radius: 5px;
+           -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+       }
+   </style>
+</head>
+
+<!-- divs -->
+<body>
+
+<div id="heatmapbox" class="box heatmap-box"><div class="box-title"><hr><div id="heatmap-5"></div></div><span style="font-style:italic;"></span></div>
+<div id="centerbox" class="box center-box"><div class="box-title"><img src="logo-header.png" style="float:right;" /></div><span style="font-style:italic;"></span></div>
+<div id="placesbox" class="box places-box"><div class="box-places"><ul id="placesUl" , style="width: 300px; height: 200px;  -webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;overflow-y: auto">
+</ul></div><span style="font-style:italic;"></span></div>
+<div svg = legend class=" legend"></div>
+<div id="rightbox" class="box right-box"><div class="box-title"><h3>Facebook Data: "Your Places" </h3></div><span style="font-style:italic;"></span></div>
+
+</body>
+
+<!-- Javascript/D3 code -->
+<script>
+
+   var width =  1200,
+       height = 1200;
+       // Drag Speed:
+       // sens = 0.3;
+
+   const center = (width/2,height/2);
+
+   //helper variables for auto-rotate
+   var time = Date.now();
+   var rotate = [0, 0];
+   var velocity = [.01, -0];
+
+   //Define SVG Container
+   var svg = d3.select("body").append("svg")
+   .attr("id", "world")
+   .attr("width", width)
+   .attr("height", height);
+
+   //defining Globe Projection, Can change to other types, Eg: .mercator()
+   var projection = d3.geo.orthographic()
+       .scale(width/3, height/2)
+       .translate([width / 1.7, height /3])
+       .center([15,0])
+       .clipAngle(90)
+       .precision(.1)
+       .rotate([0,0,0]);
+
+   var path = d3.geo.path()
+       .projection(projection);
+
+   var graticule = d3.geo.graticule();
+   //Container for grouping objects
+   var g = svg.append('g');
+   var sphere = {type: "Sphere"};
+
+   //Define and set sphere for setting globe ocean/background colour
+   g.append("path")
+       .datum(sphere)
+       .attr("class", "sphere")
+       .attr("d", path);
+
+   //Create vizualisation
+   buildHeatMap();
+   buildWorld();
+   addPlaces();
+   buildListPlaces();
+
+
+   //Create Globe
+   function buildWorld() {
+           // Append all meridians and parallels/create globe
+           d3.json("world110m.json", function (collection) {
+               g.selectAll("path")
+                   .data(topojson.feature(collection, collection.objects.countries).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("class", "country")
+                   .attr("fill", "#9e1cec")
+                   .attr("opacity", 0.8)
+                   /*drag functionality ->not-functioning need to remove auto-rotate
+                   .call(d3.behavior.drag()
+                       .origin(function() {
+                           var r = projection.rotate();
+                           return {x: r[0] / sens, y: -r[1] / sens}; })
+                       .on('drag', function(d) {
+                           var rotate = projection.rotate();
+                           projection.rotate([d3.event.x * sens, -d3.event.y * sens, rotate[2]]);
+                           g.selectAll('.path').attr('d', path);
+                       }));*/
+
+               //add graticule to globe: Grid Lines
+               g.append("path")
+                   .datum(graticule)
+                   .attr("class", "graticule")
+                   .attr("d",path)
+                   .attr("opacity", 0.3);
+           });
+       }
+
+   // Add Lists : "Your Places" List
+   function buildListPlaces(){
+
+       d3.json("your_places.json", function (data) {
+
+           var array = [];
+           for (var i = 0; i < data.your_places.length; i++) {
+               //get rid of any repeats
+               if ((array.includes(data.your_places[i].address) == true)
+                   && (array.includes(data.your_places[i].name) == true)
+                   && (array.includes(data.your_places[i].url) == true)) {
+               } else {
+                   array.push({
+                       Location: data.your_places[i].address,
+                       Name: data.your_places[i].name,
+                       URL: data.your_places[i].url
+                   });}
+           }
+
+           //create list with array elements and add link to Corresponding Facebook activity
+           array.forEach(function (item) {
+               $("#placesUl").append("<li>" + "Location :" + item.Location +"<br>" + "-> " + item.Name.link(item.URL) +"<hr>"+"</li>");
+           });
+       });
+       g.append(".placesUl");
+   }
+   // "Current Active Sessions" List(not displayed)
+   /*function buildListLogins() {
+
+           d3.json("where_you're_logged_in.json", function (data) {
+
+               var array = [];
+               for (var i = 0; i < data.active_sessions.length; i++) {
+                   //get rid of any repeats
+                   if ((array.includes(data.active_sessions[i].device)==true)
+                       && (array.includes(data.active_sessions[i].location)==true)
+                       && (array.includes(data.active_sessions[i].app)==true)) {
+                   } else {
+                       array.push({
+                           Location: data.active_sessions[i].location,
+                           Device: data.active_sessions[i].device,
+                           App: data.active_sessions[i].app
+                       });}}
+               //create list with array elements
+               array.forEach(function (item) {
+                   $("#loginsUl").append("<li>" + "Location :" + item.Location +"<br>" + "Device :" + item.Device +"<br>" + "App :" + item.App + "<hr>"+ "</li>");
+               });
+
+           });
+           g.append(".loginsUl");
+       }*/
+   //<div id="loginsbox" class="box logins-box"><div class="box-logins"><ul id="loginsUl", style="width: 300px; height: 200px;  -webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;overflow-y: auto">></ul></div><span style="font-style:italic;"></span></div>
+
+   // Create Heat Map
+   function buildHeatMap( ) {
+
+       d3.json("foobar.json", function (data){
+
+           //Format json into acceptable HeatMap Format using moment.js
+           var calendarData = [];
+           for (var i = 0; i < data.length; i++) {
+               calendarData.push({ count: data[i].count,  date: moment.unix(data[i].date).format("YYYY-MM-DD")});
+           }
+           // Set up HeatMap : can change options freely/add dynamic values
+           $("#heatmap-5").CalendarHeatmap( calendarData, {
+               title: "Daily Facebook Activity",
+               months: 12,
+               lastYear: 2018,  // ideally a dynamic variable, with dropdown List value.
+               coloring: "electric",
+               legend: {
+                   maxLabel: "More",
+                   minLabel: "Less"
+               },
+               weekStartDay: 0,
+               labels: {
+                   days: false,
+                   custom: {
+                       monthLabels: "MMM 'YY"
+                   }
+               },
+               tooltips:{
+                   show: true
+               }});
+
+
+           // setting "Years" Drop down List for HeatMap with "foobar.json" Data Values
+           //dropdown list not displayed
+           var select = document.getElementById('heatMapData');
+           var years = []
+
+           for (var i = 0; i < data.length; i++) {
+               //get rid of any repeats
+               if (years.includes(moment.unix(data[i].date).format("YYYY"))== true) {
+               } else {
+                   years.push(moment.unix(data[i].date).format("YYYY"));
+               }
+           }
+
+           for (var i = 0; i < years.length; i++) {
+               // add options to select
+               select.options[select.options.length] = new Option(years[i],years[i]);
+           }
+       });
+   }
+   // Add Markers to Globe, Can use different JSON FILES
+   function addPlaces() {
+       // add markers to globe
+       d3.json("your_places.json", function (data) {
+
+           g.selectAll("circles")
+               .data(data.your_places)
+               .enter()
+               .append("a")
+               .attr("xlink:href", function (d) {
+                   return d.url
+               })
+               //for custom image markers -> import file and change name, replace "circle" code
+               /*.append("svg:image")
+               .attr("class", "places")
+               .attr("xlink:href", "Marker.png")
+               .attr('width', 20)
+               .attr('height', 50)
+                .attr("transform", function (d) {
+                   return "translate(" + projection([d.coordinate.longitude, d.coordinate.latitude]) + ")";
+               });*/
+               .append("circle")
+               .attr("cx", function (d) {
+                   return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+               })
+               .attr("cy", function (d) {
+                   return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+               })
+               .attr("r", 5)
+               .attr("class", "places")
+               .attr("fill", "white")
+               //Attempt at making map markers display according to side of globe showing
+               .attr("opacity", d => {
+                   const coords = [d.coordinate.longitude, d.coordinate.latitude];
+                   gdistance = d3.geo.distance(coords, projection.invert(center));
+                   return gdistance > 1.57 ? 0 : 1;
+               });
+
+
+       });
+        //start auto rotate
+       spinning_globe();
+
+               /* Attempt at making map markers display according to side of globe displayed
+               .attr("opacity", d => {
+                   const coords = [d.coordinate.longitude, d.coordinate.latitude];
+                   gdistance = d3.geo.distance(coords, projection.invert(center));
+                   return gdistance > 1.57 ? 0 : 1;
+               })
+           */
+   }
+   //auto rotate
+   function spinning_globe(){
+       d3.timer(function() {
+
+           // get current time
+           var dt = Date.now() - time;
+
+           // get the new position from modified projection function
+           projection.rotate([rotate[0] + velocity[0] * dt, rotate[1] + velocity[1] * dt]);
+
+           // update places position/globe/graticule/sphere = redraw
+           d3.json("your_places.json", function (data) {
+               g.selectAll(".places")
+                   .data(data.your_places)
+                   .attr("cx", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                   })
+                   .attr("cy", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                   })
+                   .attr("r", 5)
+                   .attr("opacity", 1)
+                   .attr("class", "places")
+                   .attr("fill", "white");});
+           g.selectAll(".sphere").datum(sphere).attr("d", path);
+           g.selectAll("path").attr("d", path);
+       });
+   }
+
+   // Events for rotation
+   document.getElementById("rotation").addEventListener("change", function() {
+       var new_speed = this.value;
+       velocity[0] = new_speed
+   });
+
+
+            /*Extra Code*/
+//couple examples of other DataSets:
+
+       /*function addLoginLogoutPlaces() {
+       // add markers to globe
+       d3.json("logins_and_logouts.json", function (data) {
+
+           g.selectAll("circle").remove()
+               .data(data.account_accesses)
+               .enter()
+               .append("a")
+               .attr("xlink:href", function (d) {
+                   return d.url
+               })
+               .append("circle")
+               .attr("cx", function (d) {
+                   return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+               })
+               .attr("cy", function (d) {
+                   return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+               })
+               .attr("fill","red")
+               .attr("r", 2)
+               .attr("opacity", 0.5)
+               .attr("class", "places");
+       });
+
+})
+   }*/
+
+       /*function addIPPlaces(){
+           d3.json("used_ip_addresses.json", function (data) {
+
+               g.selectAll("circles").remove()
+                   .data(data.used_ip_address)
+                   .enter()
+                   .append("circle")
+                   .attr("cx", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                   })
+                   .attr("cy", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                   })
+                   .attr("r", 2)
+                   .attr("opacity", 0.5)
+                   .attr("class", "places")
+                   .attr("fill", "green");
+           });}
+       function addAccountActivityPlaces(){
+           d3.json("account_activity.json", function (data) {
+
+               g.selectAll("circles")
+                   .remove()
+                   .data(data.account_activity)
+                   .enter()
+                   .append("circle")
+                   .attr("cx", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[0]
+                   })
+                   .attr("cy", function (d) {
+                       return projection([d.coordinate.longitude, d.coordinate.latitude])[1]
+                   })
+                   .attr("r", 2)
+                   .attr("opacity", 0.5)
+                   .attr("class", "places")
+                   .attr("fill", "red");
+           });}*/
+
+        /*Function for Markers on Map  options
+        /*function dropdownListMap(){
+
+var dropdown = d3.select("#MarkerData");
+var change = function() {
+var source = dropdown.node().options[dropdown.node().selectedIndex].value;
+switch (source) {
+   case "account_activity":
+       addAccountActivityPlaces();
+       break;
+   case "logins_and_logouts":
+       addLoginLogoutPlaces();
+       break;
+   case "used_ip_addresses":
+       addIPPlaces();
+       break;
+   default:
+       addPlaces();
+}
+}
+}
+*/
+   //drop Down List for heatMap
+   /*function dropDownListHeatMap() {
+       var heatMapDropDown = d3.select("#heatMapData");
+       heatMapDropDown.on("change", function () {
+           var heatMapYear = (heatMapDropDown.node().options[heatMapDropDown.node().selectedIndex].value);
+           buildHeatMap(heatMapYear);
+       });
+   }*/
+</script>
+</html>
+
+
+
+

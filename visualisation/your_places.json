@@ -1,0 +1,84 @@
+{
+  "your_places": [
+    {
+      "name": "Somewhere in the Universe",
+      "coordinate": {
+        "latitude": 28.639151315492,
+        "longitude": 77.377974249468
+      },
+      "address": "Ghaziabad, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/164245767113840",
+      "creation_timestamp": 1380204640
+    },
+    {
+      "name": "Bowling Alley",
+      "coordinate": {
+        "latitude": 28.637399300699,
+        "longitude": 77.378235104895
+      },
+      "address": "Ghaziabad, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/132509506897536",
+      "creation_timestamp": 1351499886
+    },
+    {
+      "name": "Shipra Sun City Dushera Mela",
+      "coordinate": {
+        "latitude": 28.622200937605,
+        "longitude": 77.373927362563
+      },
+      "address": "Noida, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/284978681613986",
+      "creation_timestamp": 1350829968
+    },
+    {
+      "name": "Shipra Sun City",
+      "coordinate": {
+        "latitude": 28.60464,
+        "longitude": 77.40425
+      },
+      "address": "Noida, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/484283471602259",
+      "creation_timestamp": 1349948380
+    },
+    {
+      "name": "Shipra Sun City",
+      "coordinate": {
+        "latitude": 28.627691254072,
+        "longitude": 77.406010427605
+      },
+      "address": "Noida, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/453066401382752",
+      "creation_timestamp": 1346747087
+    },
+    {
+      "name": "FaceBook !! :p",
+      "coordinate": {
+        "latitude": 28.638109512195,
+        "longitude": 77.376828739837
+      },
+      "address": "Ghaziabad, Uttar Pradesh, India",
+      "url": "https://www.facebook.com/464102146941421",
+      "creation_timestamp": 1343639819
+    },
+    {
+      "name": "Cocktail",
+      "coordinate": {
+        "latitude": 28.632759681688,
+        "longitude": 77.363722600143
+      },
+      "address": "Delhi, India",
+      "url": "https://www.facebook.com/497748966918238",
+      "creation_timestamp": 1342367943
+    },
+    {
+      "name": "Lilac - II,Sohna Road",
+      "coordinate": {
+        "latitude": 28.413728470588,
+        "longitude": 77.049025176471
+      },
+      "address": "Gurugram, Haryana, India",
+      "url": "https://www.facebook.com/266856060067924",
+      "creation_timestamp": 1333297316
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+    "recognized_devices": [
+        {
+            "name": "Chrome on Windows",
+            "created_timestamp": 1506100976,
+            "updated_timestamp": 1538492143,
+            "ip_address": "92.232.108.14",
+            "user_agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.91 Safari/537.36",
+            "datr_cookie": "",
+            "coordinate": {
+                "latitude": "51.4552",
+                "longitude": "-2.5966"
+            }
+        },
+        {
+            "name": "Facebook for iPhone",
+            "created_timestamp": 1428480511,
+            "updated_timestamp": 1471722708,
+            "ip_address": "92.129.5.77",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206 [FBAN/FBIOS;FBAV/6.5.1;FBBV/377040;FBDV/iPhone3,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/5.1.1;FBSS/2; FBCR/vodafoneUK;FBID/phone;FBLC/en_US;FBOP/5]",
+            "datr_cookie": "",
+            "coordinate": {
+                "latitude": "45.1787",
+                "longitude": "5.7148"
+            }
+        },
+        {
+            "name": "Facebook for iPhone",
+            "created_timestamp": 1384539723,
+            "ip_address": "86.138.225.26",
+            "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 [FBAN/FBIOS;FBAV/6.7.1;FBBV/583225;FBDV/iPhone4,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/6.1.3;FBSS/2; FBCR/vodafoneUK;FBID/phone;FBLC/en_US;FBOP/5]",
+            "datr_cookie": "",
+            "coordinate": {
+                "latitude": "50.4096",
+                "longitude": "-4.2251"
+            }
+        }
+    ]
+}
