@@ -12,7 +12,7 @@ Data displayed:
     
 Visualisation Code and Data Preprocessing code in their respective folder.
 
-<img src="viz.png" />
+<img src="/Media/viz.png" width="500" height="300">
 
 
 Video : https://youtu.be/pCmPKeypuYg
