@@ -10,6 +10,11 @@ Data displayed:
     - Daily interactions on Facebook ( eg: posts, comments, messages )
     
 Visualisation Code and Data Preprocessing code in their respective folder.
+
+<img src="viz.png" />
+
+
+Video : https://youtu.be/pCmPKeypuYg
      
 # Installation and Dependencies
 
