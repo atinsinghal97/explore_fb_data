@@ -41,8 +41,9 @@ For customisation of user data and custom display :
   - Run Jupiter Notebook file to clean and format folder for use. This will generate    updated json files.
   - Replace "your_place.json" with your own in the visualisation folder ( if renamed, make sure to correct the path in the code )
   - To display other data on the globe such as "used_ip_addresses.json"/"where_you've_logged_in.json" , uncomment corresponding functions and replace file with your own. You will need to comment out the working "your_places" function.
+  
   -Dropdown lists for data files and heatmap years available for optional usage:
-      - uncomment, create a div containing the <select id="" ></select> and place in body
+  - uncomment, create a div containing the <select id="" ></select> and place in body
   
  # Colours
   - Colours customisables in css section.
