@@ -19,7 +19,7 @@ Video : https://youtu.be/pCmPKeypuYg
      
 # Installation and Dependencies
 
-import : 
+Dependencies:
  - D3.js (v3) 
  - topojson 
  - moment.js 
@@ -27,16 +27,16 @@ import :
  - Bootsrap 
  - Jquery Calendar Heatmap (https://github.com/SeBassTian23/CalendarHeatmap)
  
- 
- 
-      <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"> </script>
-      <script src="https://d3js.org/topojson.v3.min.js"></script>
+Import:
 
+
+      <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"> </script>
+      <script src="https://d3js.org/topojson.v3.min.js"></script>     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
       <script src="jquery.CalendarHeatmap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="jquery.CalendarHeatmap.min.css">
+     
 
 # Usage
 
