@@ -1,4 +1,5 @@
 # explore_fb_data
+-Facebook Data in Time and Space project for Ethi-
 
 Simple visualization of User Facebook Data using D3.js:
   - Rotating globe and heatmap displaying user's "your places" and daily facebook activity
@@ -52,6 +53,6 @@ For customisation of user data and custom display :
   
  # Colours
   - Colours customisables in css section.
-  - For HeatMap Customising refere to @SeBassTian23 repo on HeatMap (https://github.com/SeBassTian23/CalendarHeatmap)
+  - For HeatMap Customization refer to @SeBassTian23 repository (https://github.com/SeBassTian23/CalendarHeatmap)
 
 
