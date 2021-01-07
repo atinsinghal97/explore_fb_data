@@ -3,7 +3,7 @@
 Simple visualization of User Facebook Data using D3.js:
   - Rotating globe and heatmap displaying user's "your places" and daily facebook activity
   
-Data displayed: 
+Data displayed : 
 
     - User's : Facebook "places"
     
